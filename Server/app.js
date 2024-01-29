@@ -3,6 +3,7 @@ import cors from "cors";
 import cookieParser from "cookie-parser";
 import {config} from "dotenv";
 import morgan from "morgan";
+import userRoutes from "./routes/user.routes.js";
 config();
 
 const app = express();
@@ -24,6 +25,7 @@ app.use('/ping', (req, res) => {
 });
 
 // Routes of 3 Modules => User | Course | Payment
+app.use('api/v1/user', userRoutes);
 
 // for random url
 app.all("*", (req, res) => {
